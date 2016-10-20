@@ -12,8 +12,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/UltiSnips'
 Plugin 'honza/vim-snippets'
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 
@@ -42,7 +43,11 @@ map <F9> :YcmCompleter FixIt<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 syntax enable
-set background=light
+if has ('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 let g:solarized_termcolors=256
 colorscheme solarized
 
