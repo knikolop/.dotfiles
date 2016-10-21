@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/UltiSnips'
 Plugin 'honza/vim-snippets'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'powerline/fonts'
 Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 
@@ -43,11 +44,6 @@ map <F9> :YcmCompleter FixIt<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 syntax enable
-if has ('gui_running')
-    set background=light
-else
-    set background=dark
-endif
 let g:solarized_termcolors=256
 colorscheme solarized
 
@@ -56,6 +52,20 @@ colorscheme solarized
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
+if has ('gui')
+    set background=light
+    set guifont=Inconsolata-g\ for\ Powerline\ 13
+else
+    set background=dark
+endif
+
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+set autoindent
+set smartindent
+set t_Co=256
+
 set splitbelow
 set splitright
 set tabstop=4
@@ -63,6 +73,7 @@ set shiftwidth=4
 set expandtab
 set number
 set nowrap
+set foldmethod=indent
 
 nnoremap ; :
 nnoremap <c-j> <c-w>j
